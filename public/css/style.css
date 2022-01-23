@@ -1,0 +1,36 @@
+
+@media(max-width:500px) {
+    section {
+        padding: 10px;
+    }
+    /* css header */
+    .header{
+        position: fixed;
+        left: 0;
+        right:0;
+        top:0;
+        background-color: red;
+    }
+    .header {
+        gap: 10px;
+        width: 100%;
+        display: flex;
+    }
+
+    .header h3 {
+        color: #fff;
+        width: 30%;
+    }
+
+    .header form {
+        width: 70%;
+    }
+
+    .header input {
+        height: 30px;
+        border-radius: 10px;
+        width: 100%;
+        padding-left: 10px;
+        font-size: 16px;
+    }
+}
