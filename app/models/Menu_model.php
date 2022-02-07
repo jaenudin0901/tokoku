@@ -14,28 +14,16 @@ class Menu_model{
     {
         $this->db->query('SELECT * FROM '. $this->table);
         
-        return $this->db->returnSet();
+        return $this->db->resultSet();
     }
    
-    private $menu= [
-        [
-            "jenis_ikan" => "Baronang",
-            "gambar" => "baronang.jpg",
-        ],
-        [
-            "jenis_ikan" => "kerapu",
-            "gambar" => "kerapu.jpg",
-        ],
-        [
-            "jenis_ikan" => "kudukudu",
-            "gambar" => "kudukudu.jpg",
-        ],
-        [
-            "jenis_ikan" => "Bawal",
-            "gambar" => "Bawal.jpg",
-        ],
+    public function getMenuById($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
 
-    ];
+        $this->db->bind('id', $id);
 
+        return $this->db->single();
+    }
 
 }

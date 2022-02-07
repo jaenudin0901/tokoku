@@ -1,6 +1,6 @@
 <?php 
 
-define('BASEURL', 'http://localhost/tokoku/public');
+define('BASEURL', 'http://localhost/tokoku/public/');
 
 // DB
 define('DB_HOST', 'localhost');

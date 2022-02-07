@@ -1,36 +1,170 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url(bg.jpg);
+    background-position: center;
+    background-attachment: fixed;
+}
+header{
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 0 100px;
+    background: red;
+    width: 100%;
+    box-sizing: border-box;
+}
+header .logo {
+    color:gold;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    float: left;
+    font-weight: bold;
+}
+header nav{
+    float: right;
+}
+header nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+header nav ul li {
+    list-style: none;
+    position: relative;
+}
+header nav ul li.sub-menu::before{
+    content: '\f0d7';
+    font-family: fontAwesome;
+    position: absolute;
+    line-height: 50px;
+    color: #fff;
+    right: 5px;
+}
+header nav ul li.active.sub-menu::before{
+    content: '\f0d8';
 
+}
+header nav ul li ul{
+    position: absolute;
+    left: 0;
+    background:  red
+    display: none;
+}
+header nav ul li:active ul{
+    display: block;
+}
+header nav ul li ul li{
+    display: block;
+    width: 200px;
+}
+header nav ul li a{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+header nav ul li a:hover,
+header nav ul li a:active{
+    color: #fff;
+    background: #2196f3;
+}
+.menu-toggle{
+    color: #fff;
+    float: right;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    display: none;
+}
 @media(max-width:500px) {
     section {
         padding: 10px;
     }
     /* css header */
-    .header{
-        position: fixed;
-        left: 0;
-        right:0;
-        top:0;
-        background-color: red;
+    header{
+        padding: 0 20px;
     }
-    .header {
+    .menu-toggle{
+        display: block;
+    }
+    header nav{
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 50px);
+        background:red;
+        top: 50px;
+        left:-100%;
+        transition: 0.5s;
+    }
+    header nav.active{
+        left:0;
+    }
+    header nav ul {
+        display: block;
+        text-align: center;
+    }
+    header nav ul li a{
+        border-bottom: 1px solid rgba(0,0,0,.2);
+    }
+    header nav ul li.active ul {
+        position: relative;
+        background: #003e6f;
+        text-align: center;
+    }
+    header nav ul li ul li {
+        width: 100%;
+    }
+    /* end header */
+    /* start product */
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 2fr));
         gap: 10px;
+    }
+    .products .product:hover{
+        border: 1px solid black;
+    }
+    .products .product a {
+        color: black;
+        text-align: start;
+        text-decoration: none;  
+    }
+    .products .product {
+        background-color:#fff;
+        text-align: center;
+    }
+    .products .product:hover{
+        border: 1px solid gray;
+    }
+
+    .products .product img {
+        height: 200px;
         width: 100%;
-        display: flex;
+        background-size: cover;
     }
 
-    .header h3 {
-        color: #fff;
-        width: 30%;
+    .products .product h3, p{
+         margin-top: 10px;
     }
+    .products .product .price{
+        color: red;
+    }
+/* end product */
 
-    .header form {
-        width: 70%;
-    }
-
-    .header input {
-        height: 30px;
-        border-radius: 10px;
-        width: 100%;
-        padding-left: 10px;
-        font-size: 16px;
-    }
+/* css detail */
+.details{
+    margin-top: 60px;
+}
+.details .product{
+    width: 100%;
+}
+.details .product img{
+    width: 100%;
+}
 }

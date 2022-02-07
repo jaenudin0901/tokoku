@@ -11,4 +11,13 @@ class Menu extends Controller {
         $this->view('templates/footer');
     }
 
+    public function detail($id)
+    {
+        $data['judul']='Detail Menu';
+        $data['menu'] = $this->model('Menu_model')->getMenuById($id);
+        $this->view('templates/header', $data);
+        $this->view('menu/detail', $data);
+        $this->view('templates/footer');
+    }
+
 }
